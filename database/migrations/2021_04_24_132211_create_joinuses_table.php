@@ -24,7 +24,7 @@ class CreateJoinusesTable extends Migration
             $table->tinyInteger("zip");
             $table->text("designation");
             $table->tinyInteger("age");
-            $table->state("state");
+            $table->text("state");
             $table->text("imageaddress");
             $table->unsignedBigInteger("user_id");
 
