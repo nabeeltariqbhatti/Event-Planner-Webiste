@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\joinus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JoinusController extends Controller
 {
@@ -35,17 +36,38 @@ class JoinusController extends Controller
      */
     public function store(Request $request)
     {
+        // dd(joinus::create($request->all()));
+
 
         $data = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|max:255',
             'address' => 'required|max:100',
+            'address2' => 'max:100',
             'country' => 'required',
             'state' => 'required',
             'zip' => 'required',
+            'city' => 'required',
+            'age' => 'required',
+            'imageaddress' => 'required|image',
             'designation' => 'required'
         ]);
 
-        joinus::create($data);
+
+        // $joinus = new joinus();
+        // $joinus->email = $data["email"];
+        // $joinus->address = $data["address"];
+        // $joinus->user_id = Auth::id();
+        // $joinus->country=$data["country"];
+        // $joinus->address2=$request->address2;
+        // $joinus->age=$data["age"];
+        // $joinus->zip=$data["zip"];
+        // $joinus->designation=$data["designation"];
+
+
+
+        dd(joinus::create($data));
     }
 
     /**

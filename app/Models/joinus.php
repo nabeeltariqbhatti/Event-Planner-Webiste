@@ -8,5 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class joinus extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'email',
+        'address',
+        'address2',
+        'country',
+        'state',
+        'zip',
+        'city',
+        'age',
+        'imageaddress',
+        'designation'
+    ];
 }
