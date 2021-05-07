@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\JoinusController;
+use App\Http\Controllers\ZoomuserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +27,15 @@ Route::get('/ourteam', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/aboutus', function () {
     return view('aboutus');
-})->name('/');
+});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/joinus', function () {
-    return view('joinus');
-})->name('/');
+Route::middleware(['auth:sanctum', 'verified'])->get('/joinus', [JoinusController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/joinus', [JoinusController::class, 'store'])->name('joinus.store');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/pricing', function () {
     return view('pricing');
-})->name('/');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/eventplanner', function () {
+    return view('eventplanner');
+});
